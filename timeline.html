@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junos Timeline</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Junos Timeline</h1>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Photo Feed</a>
+        <a href="timeline.html" aria-current="page">Juno's Timeline</a>
+        <a href="potty.html">Potty Tracker</a>
+      </nav>
+    </header>
+    <main>
+      <section class="timeline-section" aria-labelledby="timelineTitle">
+        <div class="timeline-heading">
+          <h2 id="timelineTitle">Junos journey</h2>
+        <div
+          id="timeline"
+          class="timeline"
+          aria-label="Juno's photo timeline"
+          aria-live="polite"
+          tabindex="0"
+        ></div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="reactions.js"></script>
+    <script src="timeline.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junos Potty Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Junos Potty Tracker</h1>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Photo Feed</a>
+        <a href="timeline.html">Junos Timeline</a>
+        <a href="potty.html" aria-current="page">Potty Tracker</a>
+      </nav>
+    </header>
+
+    <main class="tracker-main">
+      <section class="potty-log-card" aria-labelledby="logTitle">
+        <div>
+          <h2 id="logTitle">Log an occurrence</h2>
+          <p>Choose what happened and when.</p>
+        </div>
+        <form id="pottyForm" class="potty-form">
+          <label for="pottyType">What happened?</label>
+          <select id="pottyType" required>
+            <option value="pee">Pee</option>
+            <option value="poo">Poo</option>
+            <option value="accident_pee">Pee accident</option>
+            <option value="accident_poo">Poo accident</option>
+          </select>
+          <label for="pottyDateTime">Date &amp; time</label>
+          <input id="pottyDateTime" type="datetime-local" required />
+          <button type="submit" id="logPottyBtn">Add to calendar</button>
+        </form>
+        <p id="pottyStatus" class="status-message" aria-live="polite"></p>
+      </section>
+
+      <section class="calendar-section" aria-labelledby="calendarTitle">
+        <div class="calendar-controls">
+          <button
+            type="button"
+            id="previousMonth"
+            class="calendar-arrow"
+            aria-label="Previous month"
+          >
+            ←
+          </button>
+          <h2 id="calendarTitle"></h2>
+          <button
+            type="button"
+            id="nextMonth"
+            class="calendar-arrow"
+            aria-label="Next month"
+          >
+            →
+          </button>
+        </div>
+        <div class="calendar-weekdays" aria-hidden="true">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span
+          ><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div id="pottyCalendar" class="potty-calendar" aria-live="polite"></div>
+      </section>
+
+      <section class="day-summary" aria-labelledby="selectedDayTitle">
+        <h2 id="selectedDayTitle">Selected day</h2>
+        <div id="selectedDayEvents"></div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="potty.js"></script>
+  </body>
+</html>

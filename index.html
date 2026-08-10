@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junos Early Days</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>🐾Junos Early Days🐾</h1>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Photo Feed</a>
+        <a href="timeline.html">Junos Timeline</a>
+        <a href="potty.html">Potty Tracker</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="upload-section">
+        <input type="file" id="fileInput" accept="image/*" />
+        <label class="caption-label" for="captionInput"
+          >Caption <span>(optional)</span></label
+        >
+        <textarea
+          id="captionInput"
+          rows="3"
+          maxlength="280"
+          placeholder="Tell us about this moment..."
+        ></textarea>
+        <label class="caption-label" for="dateTimeInput"
+          >Moment date &amp; time <span>(defaults to now)</span></label
+        >
+        <input type="datetime-local" id="dateTimeInput" />
+        <button id="uploadBtn">Upload Photo</button>
+
+        <div id="progressContainer" class="progress-container hidden">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <p id="statusMessage" class="status-message"></p>
+      </section>
+
+      <section class="feed-section">
+        <h2>Latest Moment</h2>
+        <div id="photoFeed" class="photo-feed">
+          <!-- Photos get added here by script.js -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+
+    <!-- Supabase JS client from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="reactions.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
